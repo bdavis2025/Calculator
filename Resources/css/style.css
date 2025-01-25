@@ -38,7 +38,9 @@ h1 {
     flex-wrap: wrap;
 }
 .number,
-.operator
+.operator,
+#clear,
+#equal
 { 
     background-color: yellow; 
     width: 60px; 
@@ -64,9 +66,9 @@ h1 {
     display: flex;
 }
 
-#clear {
+/* #clear {
     background-color: orange;
-}
+} */
 
 #operators {
     display: flex;
