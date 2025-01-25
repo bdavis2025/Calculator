@@ -57,6 +57,7 @@ h1 {
 
 .operator {
     background-color: blue;
+    margin-bottom: 12px;
 }
 
 #buttons {
@@ -65,4 +66,10 @@ h1 {
 
 #clear {
     background-color: orange;
+}
+
+#operators {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
