@@ -1,3 +1,6 @@
+var num1 = 11;
+var num2 = 11;
+
 var $screen = $("#screen");
 var $number = $(".number");
 
