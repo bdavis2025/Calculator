@@ -7,6 +7,12 @@ var $number = $(".number");
 $number.on('click', function() {
     var numberPressed = $(this).html();
     $screen.append(numberPressed);
+    if (num1 == 11) {
+        num1 = numberPressed;
+    } else if (num2 == 11) {
+        num2 = numberPressed;
+    }
+
 });
 
 /* document.getElementById("num1").onclick = function write1()
@@ -62,7 +68,7 @@ $number.on('click', function() {
     document.getElementById("clear").onclick = function writeClear()
         {
             $screen.empty();
-        }
+        };
 
         document.getElementById("plus").onclick = function writePlus()
             {
@@ -88,7 +94,25 @@ $number.on('click', function() {
                             op = "/";
                         }
 
-                       /* document.getElementById("equal").onclick = function writeEqual()
+                       document.getElementById("equal").onclick = function writeEqual()
                             {
                                 $screen.append("=");
-                            } */
+                                num1 = parseInt(num1);
+                                num2 = parseInt(num2);
+                                console.log(num1, op, num2);
+                                    if  (op == "+") {
+                                        answer = num1 + num2;
+                                    }
+                                    if (op == "-") {
+                                        answer = num1 - num2;
+                                    }
+                                    if (op == "x") {
+                                        answer = num1 * num2;
+                                    }
+                                    if (op == "/") {
+                                        answer = num1 / num2;
+                                    }
+                                    $screen.append(answer);
+                                    num1 = 11;
+                                    num2 = 11;
+                            }
