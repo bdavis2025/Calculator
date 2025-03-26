@@ -30,7 +30,7 @@ $number.on('click', function() {
 });
 
 
-       $("plus").on('click', function()
+       $("#plus").on('click', function()
             {
                 $screen.append("+");
                 op = "+";
@@ -51,14 +51,14 @@ $number.on('click', function() {
                         currentNumber++;
                     })
 
-                    $("divide").on('click', function()
+                    $("#divide").on('click', function()
                         {
                             $screen.append("/");
                             op = "/";
                             currentNumber++;
                         })
 
-        $("clear").on('click', function()
+        $("#clear").on('click', function()
         {
             $screen.empty();
             num1 = null;
@@ -66,7 +66,7 @@ $number.on('click', function() {
             currentNumber = 1;
         });
 
-                       $("equal").on('click', function()
+                       $("#equal").on('click', function()
                             {
                                 $screen.append("=");
                                 console.log(num1, num2);
