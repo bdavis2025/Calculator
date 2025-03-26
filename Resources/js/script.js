@@ -88,4 +88,4 @@ $number.on('click', function() {
                                     $screen.append(answer);
                                     num1 = 11;
                                     num2 = 11;
-                            }
+                            })
