@@ -38,8 +38,7 @@ h1 {
     flex-wrap: wrap;
     justify-content: center;
 }
-.button
-{ 
+.button { 
     background-color: yellow; 
     width: 60px; 
     height: 60px; 
@@ -62,12 +61,9 @@ h1 {
 
 #buttons {
     display: flex;
-        cursor: pointer;
+    justify-content: space-around;
+    cursor: pointer;
 }
-
-/* #clear {
-    background-color: orange;
-} */
 
 #operators {
     display: flex;
