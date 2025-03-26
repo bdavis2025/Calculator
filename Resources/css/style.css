@@ -73,3 +73,8 @@ h1 {
     flex-direction: column;
     justify-content: space-between;
 }
+
+#clear,
+#equal {
+    background-color: gray;
+}
