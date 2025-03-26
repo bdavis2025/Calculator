@@ -1,6 +1,7 @@
 var currentNumber = 1;
 var num1;
 var num2;
+var click = 1;
 
 var $screen = $("#screen");
 var $number = $(".number");
@@ -9,6 +10,10 @@ var $number = $(".number");
 //saves the number to do the math
 
 $number.on('click', function() {
+    if (click > 8) {
+        return;
+    }
+    click++;    
     var numberPressed = $(this).html();
     $screen.append(numberPressed);
 
@@ -29,33 +34,45 @@ $number.on('click', function() {
     }
 });
 
+    function more(){
+        if (click > 8){
+            click = click -5;
+        }
+        if (currentNumber == 2) {
+            findAnswer();
+            $screen.empty();
+            $screen.append(num1);
+        }
+        currentNumber = 2;
+    }
+
 
        $("#plus").on('click', function()
             {
+                more();
                 $screen.append("+");
-                op = "+";
-                currentNumber++;
+                op = "+";                
             })
 
             $("#minus").on('click', function ()
                 {
+                    more();
                     $screen.append("-");
                     op = "-";
-                    currentNumber++;
                 })
 
                 $("#multiply").on('click', function()
                     {
+                        more();
                         $screen.append("x");
-                        op = "x";
-                        currentNumber++;
+                        op = "x";                        
                     })
 
                     $("#divide").on('click', function()
                         {
+                            more();
                             $screen.append("/");
-                            op = "/";
-                            currentNumber++;
+                            op = "/";                            
                         })
 
         $("#clear").on('click', function()
@@ -64,28 +81,38 @@ $number.on('click', function() {
             num1 = null;
             num2 = null;
             currentNumber = 1;
+            click = 1;
         });
+
+        function findAnswer() {
+            num1 = parseInt(num1);
+            num2 = parseInt(num2);
+                if (op == "+") {
+                    answer = num1 + num2;
+                }
+                if (op == "-") {
+                    answer = num1 - num2;
+                }
+                if (op == "x") {
+                    answer = num1 * num2;
+                }
+                if (op == "/") {
+                    answer = num1 / num2;
+                }
+                num1 = answer;
+                num2 = null;
+                currentNumber = 1;
+
+        }
 
                        $("#equal").on('click', function()
                             {
-                                $screen.append("=");
-                                console.log(num1, num2);
-                                num1 = parseInt(num1);
-                                num2 = parseInt(num2);
-                                console.log(num1, op, num2);
-                                    if  (op == "+") {
-                                        answer = num1 + num2;
-                                    }
-                                    if (op == "-") {
-                                        answer = num1 - num2;
-                                    }
-                                    if (op == "x") {
-                                        answer = num1 * num2;
-                                    }
-                                    if (op == "/") {
-                                        answer = num1 / num2;
-                                    }
-                                    $screen.append(answer);
-                                    num1 = 11;
-                                    num2 = 11;
+                            $screen.append("=");
+                            findAnswer();
+                            if (click > 8) {
+                                $screen.empty();
+                                var answerLength = answer.toString();
+                                click = answerLength.length;
+                            }
+                                $screen.append(answer);
                             })
